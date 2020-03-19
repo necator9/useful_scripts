@@ -1,6 +1,7 @@
-# Build using optimization flags for Rasperry Pi 3 
-
 #!/bin/bash
+
+# Build using optimization flags for Rasperry Pi 3 
+# Compilation flags explained https://www.simonwenkel.com/2019/12/28/OpenCV-compilation-flags-explained.html
 
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -10,9 +11,9 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D ENABLE_NEON=ON \
       -D ENABLE_VFPV3=ON \
       -D WITH_V4L=ON \
+      -D WITH_WEBP=OFF \
       -D WITH_QT=ON \
       -D WITH_OPENGL=ON \
       -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-      -D OPENCV_ENABLE_NONFREE=ON \
-      -D CMAKE_SHARED_LINKER_FLAGS='-latomic' ..
+      -D OPENCV_ENABLE_NONFREE=ON ..
 #      -D BUILD_EXAMPLES=OFF \
